@@ -15,7 +15,7 @@ fi
 ext_ip=$(bash -ic "show interfaces ethernet $1 brief | grep $1" |  awk '{print $2}' )
 tries=$(cat "$tmpfile")
 
-REGEX="^(192\.168|10\.|172\.1[6789]\.|172\.2[0-9]\.|172\.3[01]\.)"
+REGEX="^(192\.168|10\.|172\.1[6789]\.|172\.2[0-9]\.|172\.3[01]\.|169\.254\.)"
 if [[ $ext_ip =~ $REGEX ]] || [[ "$ext_ip"x == "-x" ]]; then
   echo $ext_ip
   echo "private or non ip found"
